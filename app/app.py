@@ -26,7 +26,7 @@ def index():
     version = cur.fetchone()
     cur.close()
     conn.close()
-    return f"Подключение к Postgres успешно!<br>Версия: {version[0]}"
+    return f"DB connection OK. Version: {version[0]}"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
