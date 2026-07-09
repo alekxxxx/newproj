@@ -26,7 +26,7 @@ def index():
     version = cur.fetchone()
     cur.close()
     conn.close()
-    return f"DB connection OK. Version: {version[0]}"
+    return f"Succes: Соединение с базой установлено! Версия: {version[0]}"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
