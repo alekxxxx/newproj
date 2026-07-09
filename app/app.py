@@ -6,7 +6,6 @@ from flask import Flask
 app = Flask(__name__)
 
 def get_connection():
-    # Простая retry-логика на случай если Postgres ещё не готов
     for _ in range(10):
         try:
             return psycopg2.connect(
@@ -17,7 +16,7 @@ def get_connection():
             )
         except psycopg2.OperationalError:
             time.sleep(2)
-    raise Exception("Не удалось подключиться к базе данных")
+    raise Exception("Error: Не удалось подключиться к базе данных")
 
 @app.route("/")
 def index():
